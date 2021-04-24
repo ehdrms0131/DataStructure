@@ -46,8 +46,30 @@ element dequeue(QueueType* q)
 
 int main(void)
 {
-	QueueType* q = MAX_SIZE;
-	enqueue(q,1);
+	QueueType q[MAX_SIZE];
+	int qValue;
+	int a;
 
-	dequeue(q,1);
+	initialize(q);
+	while (1)
+	{
+		printf("1.입력 2.출력 3. 종료 : ");
+		scanf_s("%d", &a);
+		switch (a)
+		{
+		case 1:
+			printf("Queue에 넣을 값 : ");
+			scanf_s("%d", &qValue);
+			enqueue(q, qValue);
+			break;
+		case 2:
+			printf("%d\n", dequeue(q));
+			break;
+		case 3:
+			exit(1);
+		default:
+			break;
+		}
+	}
+	return 0;
 }
